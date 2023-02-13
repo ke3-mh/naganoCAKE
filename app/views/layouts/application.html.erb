@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <header>
+      <% if admin_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "ログイン", new_admin_session_path %>
+        </li>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
