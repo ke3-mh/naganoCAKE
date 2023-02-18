@@ -16,6 +16,9 @@
         <li>
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </li>
+        <li>
+          <%= link_to "商品追加", new_admin_item_path %>
+        </li>
       <% else %>
         <li>
           <%= link_to "ログイン", new_admin_session_path %>

@@ -4,5 +4,5 @@ class Item < ApplicationRecord
   has_many :cart_images, dependent: :destroy
   has_many :order_images, dependent: :destroy
 
-  belongs_to :genre
+  # belongs_to :genre ジャンル機能
 end

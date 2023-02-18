@@ -1,10 +1,20 @@
 <h1>商品新規登録</h1>
-  <%= form_with model: @post_image do |f| %>
+  <%= form_with model: @item do |f| %>
     <h4>商品画像</h4>
       <%= f.file_field :image, accept: "image/*" %>
-    <h4>ショップ名</h4>
-      <%= f.text_field :shop_name %>
-    <h4>説明</h4>
-      <%= f.text_area :caption %>
-    <%= f.submit '投稿' %>
+
+    <h4>商品名</h4>
+      <%= f.text_field :name, placeholder: "商品名" %>
+
+    <h4>商品説明</h4>
+      <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
+
+    <!--<h4>ジャンル</h4>ドロップダウンリストでgenreテーブルから選択できるようにする-->
+
+    <h4>税抜価格</h4>
+      <%= f.number_field :price, placeholder: "1000" %>円
+
+    <!--<h4>販売ステータス</h4>ラジオボタンで販売ステータスを選択できるようにする-->
+
+    <%= f.submit '新規登録' %>
   <% end %>
