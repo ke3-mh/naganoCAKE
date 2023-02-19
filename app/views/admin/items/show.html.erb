@@ -1,2 +1,28 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<!--商詳細画面(admin)-->
+<div class="container">
+  <div class="row">
+    <h4>商品詳細</h4>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-3 mx-auto">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "300x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x200" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-7 mx-auto inline">
+      <table>
+        <tr><td>商品名</td><td><%= @item.name %></td></tr>
+        <tr><td>商品説明</td><td><%= @item.introduction %></td></tr>
+        <!--<tr><td>ジャンル</td></td><td>########</td></tr>-->
+        <tr><td>税込価格<br>(税抜価格)</td><td><%= @item.hoge(@item.price) %>(<%= @item.price.to_s(:delimited) %>)円</td></tr>
+      </table>
+      <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success" %>
+    </div>
+
+  </div>
+</div>

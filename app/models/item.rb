@@ -5,4 +5,9 @@ class Item < ApplicationRecord
   has_many :order_images, dependent: :destroy
 
   # belongs_to :genre ジャンル機能
+
+  def hoge(price)
+    return ((price + (price*0.1)).to_i).to_s(:delimited)
+  end
+
 end
