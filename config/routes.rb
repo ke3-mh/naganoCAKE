@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
 
-  get 'customers/mypage' => 'public/customers#show'
+  resources :items, only: [:index,
+                          :show]
 
 # ---------------------------------------------------------------------------- #
 
