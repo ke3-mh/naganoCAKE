@@ -1,2 +1,54 @@
-<h1>商品一覧</h1>
+<!--商品一覧-->
 
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 offset-md-1">
+      <h2>商品一覧</h2><%= link_to "商品追加ボタン", new_admin_item_path %>
+      <table class="table">
+        <thead>
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜価格</th>
+              <!--<th>ジャンル</th>-->
+              <!--<th>ステータス</th>-->
+            </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td>
+                <!--id-->
+                <%= item.id %>
+              </td>
+
+              <td>
+                <!--name-->
+                <%= link_to admin_item_path(item.id) do %>
+                  <%= item.name %>
+                <% end
+                %>
+              </td>
+              <td>
+                <!--price-->
+                <%= item.price %>
+              </td>
+
+              <!--<td>-->
+                <!--genre-->
+              <!--</td>-->
+
+              <!--<td>-->
+                <!--is_active-->
+              <!--</td>-->
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+<%= paginate @items %>
