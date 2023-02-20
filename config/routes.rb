@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/update'
+  end
   ## 顧客用
   # URL /customers/sign_in ...
   devise_for :customer,skip: [:passwords], controllers: {
@@ -22,12 +28,18 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/' => 'homes#top'
+
     resources :items, only: [:index,
                              :new,
                              :show,
                              :create,
                              :edit,
                              :update]
+
+    resources :customers, only: [:index,
+                                 :show,
+                                 :edit,
+                                 :update]
   end
 
 end
