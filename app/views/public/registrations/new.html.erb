@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_with model: @public, url: admin_session_path do |f| %>
+<%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
