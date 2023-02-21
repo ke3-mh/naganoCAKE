@@ -1,2 +1,61 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<!--商品編集画面(admin)-->
+<div class="container">
+
+  <div class="row">
+    <h4><%= "#{@customer.last_name + @customer.first_name}" %>さんの会員情報編集</h4>
+  </div>
+
+  <div class = "row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+      <%= form_with model: [:admin, @customer] do |f| %>
+        <div class="form-group row">
+          <label for="inputId", class="col-sm-2 col-form-label">会員ID</label>
+          <%= @customer.id %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputNmame", class="col-sm-4 col-form-label">氏名</label>
+          <%= f.text_field :last_name, id:"inputName", class:"col form-control" %>
+          <%= f.text_field :first_name, id:"inputName", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputNmamekana", class="col-sm-4 col-form-label">フリガナ</label>
+          <%= f.text_field :last_name_kana, id:"inputNamekana", class:"col form-control" %>
+          <%= f.text_field :first_name_kana, id:"inputNamekana", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPostalCode", class="col-sm-4 col-form-label">郵便番号</label>
+          <%= f.text_field :postal_code, id:"inputPostalCode", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputAdress", class="col-sm-4 col-form-label">住所</label>
+          <%= f.text_field :address, id:"inputAdress", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputTelephone", class="col-sm-4 col-form-label">電話番号</label>
+          <%= f.text_field :telephone_number, id:"inputTelephone", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputEmail", class="col-sm-4 col-form-label">メールアドレス</label>
+          <%= f.text_field :email, id:"inputEmail", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputCstatus", class="col-sm-4 col-form-label">会員ステータス</label>
+          <%= f.radio_button :is_deleted, false, id:"inputCstatus", class:"col form-control" %><p class = "col">有効</p>
+          <%= f.radio_button :is_deleted, true, id:"inputCstatus", class:"col form-control" %><p class = "col">退会</p>
+        </div>
+
+        <%= f.submit "変更を保存", class:"btn btn-success" %>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>
