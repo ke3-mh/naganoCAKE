@@ -34,6 +34,9 @@ Rails.application.routes.draw do
                                  :show,
                                  :edit,
                                  :update]
+
+    resources :orders, only: [:show,
+                              :update]
   end
 
 end

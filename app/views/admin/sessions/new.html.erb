@@ -1,29 +1,25 @@
 <div class="container">
+
   <div class="row justify-content-md-center">
     <div class="col-5">
 
-      <h2>管理者ログイン</h2>
+      <h2 class="m-3">管理者ログイン</h2>
 
       <%= form_with model: @admin, url: admin_session_path do |f| %>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+        <div class="form-group row">
+          <label for="inputEmail", class="col-sm-4 col-form-label">メールアドレス</label>
+          <%= f.email_field :email, id:"inputEmail", placeholder: "sample@exanple.com",class:"col form-control" %>
         </div>
 
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+        <div class="form-group row">
+          <label for="inputPassward", class="col-sm-4 col-form-label">パスワード</label>
+          <%= f.password_field :password, id:"inputPassward", class:"col form-control" %>
         </div>
 
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
-
-        <div class="actions">
-          <%= f.submit "Log in", class: "btn btn-primary btn-sm" %>
+        <div class="form-group row">
+          <label for="inputPassward", class="col-sm-4 col-form-label"></label>
+          <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
         </div>
       <% end %>
 

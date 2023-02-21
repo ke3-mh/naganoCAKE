@@ -15,7 +15,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :telephone_number,   null: false, default: ""  # 電話番号
       t.string :address,            null: false, default: ""  # 住所
       t.boolean :is_deleted,        null: false, default: ""  # 会員ステータス
-      ## ----------- カラムを追加　終了-----------
+      ## ----------- カラムを追加　終了----------
 
       ## Recoverable
       t.string   :reset_password_token

@@ -1,0 +1,30 @@
+<!--会員詳細画面(admin)-->
+<div class="container">
+  <div class="row">
+    <h4>注文履歴詳細</h4>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-8 offset-md-1">
+      <table class="table table-borderless">
+        <tr>
+          <td>購入者</td>
+          <td>
+            <%= link_to "#{@order.customer.last_name + ' ' + @order.customer.first_name}", admin_path %>
+          </td>
+        </tr>
+
+        <tr><td>注文日</td></td><td><%= @order.create_at %></td></tr>
+
+        <tr><td>配送先</td><td><%= @order.postal_code %></td></tr>
+
+        <tr><td>支払方法</td><td><%= @order.payment_method %></td></tr>
+
+        <!--<tr><td>注文ステータス</td><td>########</td></tr>-->
+
+      </table>
+    </div>
+
+  </div>
+</div>

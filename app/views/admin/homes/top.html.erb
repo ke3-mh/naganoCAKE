@@ -1,1 +1,46 @@
-<h1>管理者トップページ</h1>
+<!--topページ_注文履歴一覧画面(admin)-->
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 offset-md-1">
+      <h4>注文履歴一覧</h4>
+      <table class="table">
+        <thead>
+            <tr>
+              <th>購入日時</th>
+              <th>購入者</th>
+              <th>注文個数</th>
+              <!--<th>注文ステータス</th>-->
+            </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td>
+                <!--create_at-->
+                <%= link_to admin_order_path(order.id) do %>
+                  <%= order.create_at %>
+                <% end %>
+              </td>
+
+              <td>
+                <!--customer.name-->
+                <%= "#{order.customer.last_name + order.customer.first_name}" %>
+              </td>
+
+              <td>
+                <!--order.order_items.count-->
+                <%= order.order_items.count %>
+              </td>
+
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+<%= paginate @orders %>

@@ -30,7 +30,7 @@
                 <%= link_to "会員一覧", admin_customers_path, class: "nav-link" %>
               </li>
               <li class = "nav-item">
-                <%= link_to "注文履歴一覧", admin_items_path, class: "nav-link" %>
+                <%= link_to "注文履歴一覧", admin_path, class: "nav-link" %>
               </li>
               <li class = "nav-item">
                 <%= link_to "ジャンル一覧", admin_items_path, class: "nav-link" %>
@@ -49,7 +49,10 @@
                 <%= link_to "新規登録", new_customer_registration_path, class: "nav-link" %>
               </li>
               <li class = "nav-item">
-                <%= link_to "ログイン", new_admin_session_path, class: "nav-link" %>
+                <%= link_to "ログイン", new_customer_session_path, class: "nav-link" %>
+              </li>
+              <li class = "nav-item">
+                <%= link_to "ログイン(admin)", new_admin_session_path, class: "nav-link" %>
               </li>
             <% end %>
           </ul>
