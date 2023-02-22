@@ -25,6 +25,51 @@
 
       </table>
     </div>
-
   </div>
+
+  <div class="row">
+    <!--注文商品表(製造ステータス更新付き)-->
+    <div class="col-md-8 offset-md-1">
+      <table class="table">
+        <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <!--<th>製作ステータス</th>-->
+            </tr>
+        </thead>
+        <tbody>
+          <% @order_items.each do |order_item| %>
+            <tr>
+              <td>
+                <!--order_item.item.name-->
+                <%= order_item.item.name %>
+              </td>
+
+              <td>
+                <!--unit_price-->
+                <%= order_item.unit_price %>
+              </td>
+
+              <td>
+                <!--quantity-->
+                <%= order_item.quantity %>
+              </td>
+
+              <td>
+                <!--= unit_price x quantity-->
+                <%= order_item.unit_price * order_item.quantity %>
+              </td>
+
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
 </div>
