@@ -2,10 +2,20 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-md-2 mt-5">
+      <h4 class="text-center">商品一覧</h4>
+    </div>
+    <div class="col-md-3 mt-5">
+    </div>
+    <div class="col-md-5 mt-5">
+      <%= link_to new_admin_item_path, class:'float-right' do %>
+        <i class="fas fa-plus-circle fa-3x"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
 
-    <div class="col-md-8 offset-md-1">
-      <h4>商品一覧</h4>
-      <%= link_to "商品追加ボタン", new_admin_item_path %>
+    <div class="col-md-8 offset-md-1 mt-3">
       <table class="table">
         <thead>
             <tr>
