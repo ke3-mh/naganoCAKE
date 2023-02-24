@@ -6,6 +6,12 @@ class Item < ApplicationRecord
 
   # belongs_to :genre ジャンル機能
 
+  # バリデーション
+  validates :image, presence: true
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :price, presence: true
+
   def hoge(price)
     return ((price + (price*0.1)).to_i).to_s(:delimited)
   end

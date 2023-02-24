@@ -1,35 +1,50 @@
 <!--商品新規登録画面(admin)-->
 <div class="container">
   <div class="row">
+    <div class="col-md-3 mt-5">
+      <h4 class="text-dark text-center bg-light">商品新規登録</h4>
+    </div>
+    <div class="col-md-2 mt-5"></div>
+    <div class="col-md-5 mt-5"></div>
+  </div>
+
+  <!--バリデーション-->
+  <%= render 'temp/errortext', obj: @item %>
+
+  <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
-      <h4>商品新規登録</h4>
       <%= form_with model: [:admin ,@item] do |f| %>
-        <div class="form-group">
-          <label for="inputImage">商品画像</label>
-          <%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*", class:"form-control-file item_image"%>
+        <div class="form-group row">
+          <label for="inputImage", class="col-sm-4 col-form-label">商品画像</label>
+          <%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*", class:"col form-control-file item_image"%>
         </div>
 
-        <div class="form-group">
-          <label for="inputName">商品名</label>
-          <%= f.text_field :name, placeholder: "商品名", id:"inputName", class:"form-control item_name" %>
+        <div class="form-group row">
+          <label for="inputName", class="col-sm-4 col-form-label">商品名</label>
+          <%= f.text_field :name, placeholder: "商品名", id:"inputName", class:"col form-control item_name" %>
         </div>
 
-        <div class="form-group">
-          <label for="inputIntroduction">商品説明</label>
-          <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", id:"inputIntroduction", class:"form-control introduction"  %>
+        <div class="form-group row">
+          <label for="inputIntroduction", class="col-sm-4 col-form-label">商品説明</label>
+          <%= f.text_area :introduction, placeholder: "ここに説明文を記述します",size: "5x5", id:"inputIntroduction", class:"col form-control introduction"  %>
         </div>
 
         <!--ジャンル選択機能-->
 
-        <div class="form-group">
-          <label for="inputPrice">税抜価格</label>
-          <%= f.number_field :price, placeholder: "1000", id:"inputPrice", class:"form-control price"  %>
+        <div class="form-group row">
+          <label for="inputPrice", class="col-sm-4 col-form-label">税抜価格</label>
+          <%= f.number_field :price, placeholder: "1000", id:"inputPrice", class:"col form-control price"  %>
         </div>
 
         <!--販売ステータ選択機能-->
 
-        <%= f.submit "新規登録", class:"btn btn-success" %>
+
+
+        <div class="form-group row">
+          <label for="inputPassward", class="col-sm-4 col-form-label"></label>
+          <%= f.submit "新規登録", class:"btn btn-success" %>
+        </div>
 
       <% end %>
     </div>

@@ -1,7 +1,12 @@
 <!--会員詳細画面(admin)-->
 <div class="container">
+
   <div class="row">
-    <h4><%= "#{@customer.last_name + @customer.first_name}" %>さんの会員詳細</h4>
+    <div class="col-md-4 mt-5">
+      <h4 class="text-dark text-center bg-light"><%= "#{@customer.last_name + @customer.first_name}" %>さんの会員詳細</h4>
+    </div>
+    <div class="col-md-1 mt-5"></div>
+    <div class="col-md-5 mt-5"></div>
   </div>
 
   <div class="row">

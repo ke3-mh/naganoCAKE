@@ -1,9 +1,19 @@
 <!--商品編集画面(admin)-->
 <div class="container">
   <div class="row">
+    <div class="col-md-2 mt-5">
+      <h4 class="text-dark text-center bg-light">商品編集</h4>
+    </div>
+    <div class="col-md-3 mt-5"></div>
+    <div class="col-md-5 mt-5"></div>
+  </div>
+
+  <!--バリデーション-->
+  <%= render 'temp/errortext', obj: @item %>
+
+  <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
-      <h4>商品編集</h4>
       <%= form_with model: [:admin ,@item] do |f| %>
         <div class="form-group">
           <label for="inputImage">商品画像</label>

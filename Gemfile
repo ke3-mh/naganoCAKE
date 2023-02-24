@@ -64,3 +64,5 @@ gem 'kaminari','~> 1.2.1'
 
 # enum_help
 gem "enum_help"
+
+gem "rails-i18n"
