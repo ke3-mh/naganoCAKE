@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   }
 
   root to: 'public/homes#top'
+  get '/about' => 'homes#about'
 
   resources :items, only: [:index,
-                          :show]
+                           :show]
 
 # ---------------------------------------------------------------------------- #
 
