@@ -9,3 +9,13 @@ ja:
         name: 商品名
         introduction: 商品説明文
         price: 税抜価格
+
+      customer:
+        last_name: 氏名(性)
+        first_name: 氏名(名)
+        last_name_kana: 氏名(セイ)
+        first_name_kana: 氏名(メイ)
+        postal_code: 郵便番号
+        telephone_number: 電話番号
+        address: 住所
+        email: メールアドレス
