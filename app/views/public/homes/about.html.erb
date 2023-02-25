@@ -5,35 +5,16 @@
     <!--<div class="col-md-8 offset-md-1">-->
       <!--ジャンル検索用-->
     <!--</div>-->
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-10 offset-md-1">
       <div>
-        <p></p>
-        <p>このサイトは、ケーキ販売のECサイトになります。</p>
-        <p>館員でない方も商品の閲覧はできますが、</p>
-        <p>購入には科人登録が必要になります。</p>
+        <P>About</P>
+        <p>ながのCAKEは全国発送ks脳なケーキ屋さんです。</p>
+        <p>お子様からお年寄りの方までお召し上がりいただけるよう、</p>
+        <p>さまざまなバリエーションをご用意しております。</p>
+        <p>また、全国へ発送可能ですので「いつ」でも「どこ」でもご注文いただけます。</p>
+        <p>ぜひご注文ください。</p>
       </div>
     </div>
   </div>
 
-  <div class="row mt-2">
-    <h2>新着商品</h2>
-  </div>
-
-  <div class="row mt-1">
-
-    <!--<div class="col-md-8 offset-md-1">-->
-      <% @items.first(4).each do |item| %>
-        <div class="col-md-2">
-          <%= image_tag item.image, size: "150x100" %></br>
-          <%= item.name %></br>
-          <%= item.price.to_s(:delimited) %></br>
-        </div>
-      <% end %>
-    <!--</div>-->
-
-  </div>
-
-    <div class="row mt-1">
-            <%= link_to "すべての商品を見る >", root_path %>
-    </div>
 </div>

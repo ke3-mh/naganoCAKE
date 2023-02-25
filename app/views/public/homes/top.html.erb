@@ -21,15 +21,13 @@
 
   <div class="row mt-1">
 
-    <!--<div class="col-md-8 offset-md-1">-->
-      <% @items.first(4).each do |item| %>
-        <div class="col-md-2">
-          <%= image_tag item.image, size: "150x100" %></br>
-          <%= item.name %></br>
-          <%= item.price.to_s(:delimited) %></br>
-        </div>
-      <% end %>
-    <!--</div>-->
+    <% @items.first(4).each do |item| %>
+      <div class="col-md-2">
+        <%= image_tag item.image, size: "150x100" %></br>
+        <%= item.name %></br>
+        <%= item.price.to_s(:delimited) %></br>
+      </div>
+    <% end %>
 
   </div>
 
