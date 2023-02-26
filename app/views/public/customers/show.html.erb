@@ -1,1 +1,39 @@
-<h1>エンドユーザ#マイページ</h1>
+<!--マイページ画面(public)-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-5">
+      <h4 class="text-dark text-center bg-light">マイページ</h4>
+    </div>
+    <div class="col-md-7 mt-5"></div>
+  </div>
+
+<div class="row mt-2 mb-3">
+  <div class="col-2">
+    <h4>登録情報</h4>
+  </div>
+  <div class="col-2">
+    <%= link_to "#編集する", root_path, class:"btn btn-success" %>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col-md-7 mx-auto inline">
+      <table class="table table-bordered">
+        <tr><td>氏名</td><td><%= "#{@customer.last_name + '　' + @customer.first_name}" %></td></tr>
+        <tr><td>カナ</td><td><%= "#{@customer.last_name_kana + '　' + @customer.first_name_kana}" %></td></tr>
+        <tr><td>郵便番号</td><td><%= @customer.postal_code %></td></tr>
+        <tr><td>住所</td><td><%= @customer.address %></td></tr>
+        <tr><td>電話番号</td><td><%= @customer.telephone_number %></td></tr>
+        <tr><td>メールアドレス</td><td><%= @customer.email %></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-2 mb-3">
+    <div class="col-2">
+      <h4>配送先</h4>
+    </div>
+    <div class="col-2">
+      <%= link_to "#一覧を見る", root_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>

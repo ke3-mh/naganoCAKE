@@ -25,14 +25,21 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-# ログインした遷移先
-def after_sign_in_path_for(resource)
-   root_path
-end
+  # ログインした遷移先
+  def after_sign_in_path_for(resource)
+     customers_mypage_path
+  end
 
-# ログアウトした遷移先
-def after_sign_out_path_for(resource)
-   root_path
-end
+  # ログアウトした遷移先
+  def after_sign_out_path_for(resource)
+     customer_session_path
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
+
 
 end

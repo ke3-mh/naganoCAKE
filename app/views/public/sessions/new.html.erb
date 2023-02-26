@@ -1,26 +1,56 @@
-<h2>Log in</h2>
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="row">
+    <div class="col-md-3 mt-5">
+      <h4 class="text-dark text-center bg-light">ログイン</h4>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="col-md-7 mt-5"></div>
   </div>
-<% end %>
 
-<%= render "public/shared/links" %>
+  <div class="row">
+    <div class="col-md-4 mt-5 mb-3">
+      <h5 class="text-dark text-center">会員の方はここからログイン</h5>
+    </div>
+    <div class="col-md-6 mt-5"></div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-8">
+
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
+
+        <div class="form-group row">
+          <label for="inputEmail", class="col-sm-4 col-form-label">メールアドレス</label>
+          <%= f.email_field :email, id:"inputEmail", placeholder: "sample@exanple.com",class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPassward", class="col-sm-4 col-form-label">パスワード</label>
+          <%= f.password_field :password, id:"inputPassward", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPassward", class="col-sm-4 col-form-label"></label>
+          <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
+        </div>
+      <% end %>
+
+      <%= render "admin/shared/links" %>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mt-5 mb-3">
+      <h5 class="text-dark text-center">館員登録がお済でない方</h5>
+    </div>
+    <div class="col-md-6 mt-5"></div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-8">
+      <p><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください。</p>
+    </div>
+  </div>
+
+</div>
