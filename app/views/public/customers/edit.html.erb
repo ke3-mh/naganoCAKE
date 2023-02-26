@@ -1,0 +1,63 @@
+<!--商品編集画面(admin)-->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4 mt-5">
+      <h4 class="text-dark text-center bg-light">会員情報編集</h4>
+    </div>
+    <div class="col-md-1 mt-5"></div>
+    <div class="col-md-5 mt-5"></div>
+  </div>
+
+  <!--バリデーション-->
+  <%= render 'temp/errortext', obj: @customer %>
+
+  <div class = "row">
+
+    <div class="col-md-10">
+
+      <%= form_with model: @customer, url: customers_infomation_path do |f| %>
+
+        <div class="form-group row">
+          <label for="inputNmame", class="col-sm-3 col-form-label">氏名</label>
+          <%= f.text_field :last_name, id:"inputName", class:"col form-control ms-5" %>
+          <%= f.text_field :first_name, id:"inputName", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputNmamekana", class="col-sm-3 col-form-label">フリガナ</label>
+          <%= f.text_field :last_name_kana, id:"inputNamekana", class:"col form-control" %>
+          <%= f.text_field :first_name_kana, id:"inputNamekana", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPostalCode", class="col-sm-3 col-form-label">郵便番号</label>
+          <%= f.text_field :postal_code, id:"inputPostalCode", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputAdress", class="col-sm-3 col-form-label">住所</label>
+          <%= f.text_field :address, id:"inputAdress", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputTelephone", class="col-sm-3 col-form-label">電話番号</label>
+          <%= f.text_field :telephone_number, id:"inputTelephone", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputEmail", class="col-sm-3 col-form-label">メールアドレス</label>
+          <%= f.text_field :email, id:"inputEmail", class:"col form-control" %>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label"></label>
+          <%= f.submit "編集内容を保存", class:"col-2 btn btn-success" %>
+          <%= link_to "退会する", customers_confirm_path, class:"col-2 btn btn-danger" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>

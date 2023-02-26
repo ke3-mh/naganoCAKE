@@ -2,6 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :customer_state, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -41,5 +42,12 @@ class Public::SessionsController < Devise::SessionsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+  def customer_state
+    @customer = Customer.find_by(email: params[:customer][:email])
+    @customer.valid_password?(params[:customer][:password])
+    if (@customer.valid_password?(params[:customer][:password])) && (@customer.is_deleted == true)
+      redirect_to  new_customer_registration_path
+    end
+  end
 
 end

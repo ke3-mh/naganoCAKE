@@ -7,17 +7,17 @@
     <div class="col-md-7 mt-5"></div>
   </div>
 
-<div class="row mt-2 mb-3">
+<div class="row mt-2 mb-3 ">
   <div class="col-2">
     <h4>登録情報</h4>
   </div>
   <div class="col-2">
-    <%= link_to "#編集する", root_path, class:"btn btn-success" %>
+    <%= link_to "編集する", customers_infomation_edit_path, class:"btn btn-success" %>
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-7 mx-auto inline">
+  <div class="row justify-content-start">
+    <div class="col-md-7 inline">
       <table class="table table-bordered">
         <tr><td>氏名</td><td><%= "#{@customer.last_name + '　' + @customer.first_name}" %></td></tr>
         <tr><td>カナ</td><td><%= "#{@customer.last_name_kana + '　' + @customer.first_name_kana}" %></td></tr>
@@ -30,7 +30,7 @@
   </div>
   <div class="row mt-2 mb-3">
     <div class="col-2">
-      <h4>配送先</h4>
+      <h4>注文履歴</h4>
     </div>
     <div class="col-2">
       <%= link_to "#一覧を見る", root_path, class:"btn btn-primary" %>
