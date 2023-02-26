@@ -1,0 +1,20 @@
+<!--Top画面(public)-->
+<div class="container">
+
+  <div class="row mt-2">
+    <p>新着商品</p><p>(全<%= "#{@items.count}" %>件)</p>
+  </div>
+
+  <div class="row mt-1">
+
+    <% @items.first(4).each do |item| %>
+      <div class="col-md-2">
+        <%= image_tag item.image, size: "150x100" %></br>
+        <%= item.name %></br>
+        ￥<%= item.price.to_s(:delimited) %></br>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+<%= paginate @items %>

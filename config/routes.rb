@@ -7,18 +7,23 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  root to: 'public/homes#top'
-  get '/about' => 'public/homes#about'
-
   # customerr
-  get 'customers/mypage' => 'public/customers#show'
-  get 'customers/infomation/edit' => 'public/customers#edit'
-  patch 'customers/infomation' => 'public/customers#update'
-  get 'customers/confirm' => 'public/customers#confirm'
-  patch 'customers/withdraw' => 'public/customers#withdraw'
 
-  resources :items, only: [:index,
-                           :show]
+
+
+  scope module: :public do
+    root to: 'homes#top'
+    get '/about' => 'homes#about'
+
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/infomation/edit' => 'customers#edit'
+    patch 'customers/infomation' => 'customers#update'
+    get 'customers/confirm' => 'customers#confirm'
+    patch 'customers/withdraw' => 'customers#withdraw'
+
+    resources :items, only: [:index,
+                             :show]
+  end
 
 # ---------------------------------------------------------------------------- #
 
