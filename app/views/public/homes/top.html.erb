@@ -23,7 +23,9 @@
 
     <% @items.first(4).each do |item| %>
       <div class="col-md-2">
-        <%= image_tag item.image, size: "150x100" %></br>
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image, size: "150x100" %>
+        <% end %>
         <%= item.name %></br>
         ￥<%= item.price.to_s(:delimited) %></br>
       </div>
@@ -32,6 +34,6 @@
   </div>
 
     <div class="row mt-1">
-            <%= link_to "すべての商品を見る >", root_path %>
+      <%= link_to "すべての商品を見る >", items_path %>
     </div>
 </div>
