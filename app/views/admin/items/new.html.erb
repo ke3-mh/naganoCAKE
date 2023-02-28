@@ -34,7 +34,7 @@
 
         <div class="form-group row">
           <label for="inputPrice", class="col-sm-4 col-form-label">税抜価格</label>
-          <%= f.number_field :price, placeholder: "1000", id:"inputPrice", class:"col form-control price"  %>
+          <%= f.number_field :price, placeholder: "1000", id:"inputPrice", class:"col form-control price"  %><p>円</p>
         </div>
 
         <!--販売ステータ選択機能-->
@@ -43,7 +43,7 @@
 
         <div class="form-group row">
           <label for="inputPassward", class="col-sm-4 col-form-label"></label>
-          <%= f.submit "新規登録", class:"btn btn-success" %>
+          <%= f.submit "新規登録", class:"btn btn-success w-25 mx-auto" %>
         </div>
 
       <% end %>

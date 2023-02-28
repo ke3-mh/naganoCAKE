@@ -1,14 +1,14 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-3 mt-5">
+    <div class="col-md-3 mt-5 mb-3">
       <h4 class="text-dark text-center bg-light">管理者ログイン</h4>
     </div>
     <div class="col-md-7 mt-5"></div>
   </div>
 
   <div class="row justify-content-md-center">
-    <div class="col-5">
+    <div class="col-8">
 
       <%= form_with model: @admin, url: admin_session_path do |f| %>
 
@@ -24,7 +24,7 @@
 
         <div class="form-group row">
           <label for="inputPassward", class="col-sm-4 col-form-label"></label>
-          <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
+          <%= f.submit "ログイン", class: "btn btn-primary btn-sm w-25" %>
         </div>
       <% end %>
 

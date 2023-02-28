@@ -1,10 +1,17 @@
 <!--会員一覧-->
 
 <div class="container">
+
   <div class="row">
+    <div class="col-md-4 mt-5">
+      <h4 class="text-dark text-center bg-light">会員一覧</h4>
+    </div>
+    <div class="col-md-6 mt-5"></div>
+  </div>
+
+  <div class="row mt-5">
 
     <div class="col-md-8 offset-md-1">
-      <h4>会員一覧</h4>
       <table class="table">
         <thead>
             <tr>
@@ -50,5 +57,9 @@
 
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-2 mx-auto">
+      <%= paginate @customers %>
+    </div>
+  </div>
 </div>
-<%= paginate @customers %>

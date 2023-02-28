@@ -12,9 +12,9 @@
   <!--バリデーション-->
   <%= render 'temp/errortext', obj: @customer %>
 
-  <div class = "row">
+  <div class = "form-row">
     <!--<div class="col-sm-12 col-md-10 col-lg-5 px-5 px-sm-0 mx-auto">-->
-    <div class="col-md-10">
+    <div class="col-md-8">
 
       <%= form_with model: [:admin, @customer] do |f| %>
         <div class="form-group row">
@@ -24,14 +24,22 @@
 
         <div class="form-group row">
           <label for="inputNmame", class="col-sm-3 col-form-label">氏名</label>
-          <%= f.text_field :last_name, id:"inputName", class:"col form-control ms-5" %>
-          <%= f.text_field :first_name, id:"inputName", class:"col form-control" %>
+          <div class="col">
+            <%= f.text_field :last_name, id:"inputName", class:"col form-control ms-5" %>
+          </div>
+          <div class="col">
+            <%= f.text_field :first_name, id:"inputName", class:"col form-control" %>
+          </div>
         </div>
 
         <div class="form-group row">
           <label for="inputNmamekana", class="col-sm-3 col-form-label">フリガナ</label>
-          <%= f.text_field :last_name_kana, id:"inputNamekana", class:"col form-control" %>
-          <%= f.text_field :first_name_kana, id:"inputNamekana", class:"col form-control" %>
+          <div class="col">
+            <%= f.text_field :last_name_kana, id:"inputNamekana", class:"col form-control" %>
+          </div>
+          <div class="col">
+            <%= f.text_field :first_name_kana, id:"inputNamekana", class:"col form-control" %>
+          </div>
         </div>
 
         <div class="form-group row">
@@ -61,8 +69,8 @@
         </div>
 
         <div class="form-group row">
-          <label for="inputPassward", class="col-sm-3 col-form-label"></label>
-          <%= f.submit "変更を保存", class:"btn btn-success" %>
+          <label class="col-sm-3 col-form-label"></label>
+          <%= f.submit "変更を保存", class:"col-3 btn btn-success mx-auto mt-3" %>
         </div>
 
       <% end %>
