@@ -23,6 +23,10 @@ Rails.application.routes.draw do
 
     resources :items, only: [:index,
                              :show]
+
+    resources :cart_items, only: [:index,
+                                  :update,
+                                  :create]
   end
 
 # ---------------------------------------------------------------------------- #

@@ -1,1 +1,29 @@
-<h1>items#show</h1>
+<!--商詳細画面(public)-->
+<div class="container">
+
+  <div class="row mt-5">
+
+    <div class="col-md-3 mx-auto">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "300x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x200" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-7 mx-auto inline">
+      <div><h2><%= @item.name %></h2></div>
+      <div class="mt-3"><h3><%= @item.introduction %></h3></div>
+      <div class="mt-3"><h2>¥<%= @item.hoge(@item.price) %></h2><p>(税込)</p></div>
+
+      <div>
+        <%= form_with model:@cart_item, local:true do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.select :amount, *[1..10] %>
+          <%= f.submit "カートに入れる", class:"btn btn-success mx-auto" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
