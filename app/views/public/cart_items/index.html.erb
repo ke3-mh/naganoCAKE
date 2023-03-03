@@ -1,2 +1,58 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<!--カート内商品一覧画面(public)-->
+<div class="container">
+
+  <div class="row mt-5">
+    <h2>ショッピングカート</h2>
+  </div>
+
+  <div class="row mt-1">
+      <div class="col">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                  <th>商品名</th>
+                  <th>単価(税込)</th>
+                  <th>数量</th>
+                  <th>小計</th>
+                  <th><br></th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @sum = 0 %>
+              <% @cart_items.each do |cart_item| %>
+                <tr>
+                  <td>
+                    <!--商品名-->
+                    <%= image_tag cart_item.item.image, size: "90x60" %>
+                    <%= cart_item.item.name %>
+                  </td>
+
+                  <td>
+                    <!--単価(税込)-->
+                    <%= ((cart_item.item.price * 1.1).floor).to_s(:delimited) %>
+                  </td>
+                  <td>
+                    <!--数量(数量変更機能)-->
+                    <%= cart_item.amount %>
+                  </td>
+                　<td>
+                    <!--小計-->
+                    <%= ((cart_item.item.price * 1.1).floor * cart_item.amount).to_s(:delimited) %>
+                  </td>
+                  <td>
+                    <!--削除ボタン-->
+                    [削除ボタン]
+                  </td>
+                </tr>
+                <% @sum += (cart_item.item.price * 1.1).floor * cart_item.amount %>
+            <% end %>
+            </tbody>
+        </table>
+      </div>
+  </div>
+  <div class="row">
+      <p><%= link_to "買い物を続ける", root_path, class: "btn btn-primary m-1" %></p>
+      <p>合計金額　<%= @sum.to_s(:delimited) %></p>
+  </div>
+
+</div>
