@@ -2,7 +2,13 @@
 <div class="container">
 
   <div class="row mt-5">
-    <h2>ショッピングカート</h2>
+    <div class="col">
+      <h2>ショッピングカート</h2>
+    </div>
+    <div class="col">
+      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "カートを空にしますか？", class: "btn btn-danger"%>
+    </div>
+
   </div>
 
   <div class="row mt-1">
@@ -33,7 +39,10 @@
                   </td>
                   <td>
                     <!--数量(数量変更機能)-->
-                    <%= cart_item.amount %>
+                    <%= form_with model:cart_item, url:cart_item_path(cart_item.id), local:true do |f| %>
+                      <%= f.select :amount, *[1..10] %>
+                      <%= f.submit "変更する", class:"btn btn-success mx-auto" %>
+                    <% end %>
                   </td>
                 　<td>
                     <!--小計-->
@@ -41,7 +50,7 @@
                   </td>
                   <td>
                     <!--削除ボタン-->
-                    [削除ボタン]
+                    <%= link_to "削除", cart_item_path(cart_item.id), method: :delete, "data-confirm" => "商品を削除しますか？", class: "btn btn-danger"%>
                   </td>
                 </tr>
                 <% @sum += (cart_item.item.price * 1.1).floor * cart_item.amount %>
