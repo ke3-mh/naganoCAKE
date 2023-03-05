@@ -22,7 +22,7 @@ class Public::OrdersController < ApplicationController
     elsif params[:order][:select_address] == "3"
       @order.customer_id = current_customer.id
     end
-    
+
     @cart_items = current_customer.cart_items
     @order_new = Order.new
     render :confirm
@@ -32,7 +32,23 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    order = Order.new(order_params)
+    order.save
 
+    @cart_items = current_customer.cart_items.all
+
+    @cart_items.each do |cart_item|
+      @order_items = OrderItems.new
+      @order_items.order_id = order.id
+      @order_items.item_id = cart_item.item.id
+      @order_items.unit_price = cart_item.item.price_excluding_tax
+      @order_items.quantity = cart_item.amount
+      @order_items.status = 0
+      @order_items.save!
+    end
+
+    CartItem.destroy_all
+    redirect_to orders_complete
   end
 
   def index
