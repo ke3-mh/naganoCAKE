@@ -17,10 +17,11 @@
       <%= f.label :payment_method_transfer, "銀行振込" %></br>
     </div>
   </div>
+
   <div class="row mt-2 mb-3 ">
     <div class="col">
       <h5>お届け先</h5>
-      <%= f.radio_button :select_address, 1 %>
+      <%= f.radio_button :select_address, 1, checked: true %>
       <%= f.label :select_address_1, "ご自身の住所" %></br>
       <p><%= current_customer.address_display %></p>
       <p><%= current_customer.fullname_display %></p>
