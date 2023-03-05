@@ -44,7 +44,7 @@ class Public::OrdersController < ApplicationController
       @order_items.unit_price = cart_item.item.price_excluding_tax
       @order_items.quantity = cart_item.amount
       @order_items.status = 0
-      @order_items.save!
+      @order_items.save
     end
 
     CartItem.destroy_all
