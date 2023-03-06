@@ -51,7 +51,7 @@
   </div>
 
   <div class="row">
-    <table class="table table-bordered">
+    <table class="table table-borderless">
       <tr>
         <th>支払い方法</th>
         <td><%= @order.payment_method_i18n%></td>
@@ -59,7 +59,7 @@
       <tr>
         <th>お届け先</th>
         <td>
-          <%= @order.address %>
+          <%= '〒' + @order.postal_code + ' ' + @order.address %><br>
           <%= @order.name %>
         </td>
       </tr>

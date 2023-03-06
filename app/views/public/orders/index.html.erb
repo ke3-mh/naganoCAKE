@@ -1,2 +1,47 @@
-<h1>Public::Orders#index</h1>
-<p>Find me in app/views/public/orders/index.html.erb</p>
+<!--商品編集画面(public)-->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4 mt-5">
+      <h4 class="text-dark text-center bg-light">注文履歴一覧</h4>
+    </div>
+    <div class="col-md-1 mt-5"></div>
+    <div class="col-md-5 mt-5"></div>
+  </div>
+
+
+  <div class = "row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">注文日</th>
+            <th scope="col">配送先</th>
+            <th scope="col">注文商品</th>
+            <th scope="col">支払金額</th>
+            <!--<th scope="col">ステータス</th>-->
+            <th scope="col">注文詳細</th>
+          </tr>
+        </thead>
+        <% @orders.each |order| do %>
+        <tbody>
+          <tr>
+            <td><%= order.created_at %></td>
+            <td>
+              <%= '〒' + order.postal_code %></br>
+              <%= order.address %></br>
+              <%= order.name %>
+            </td>
+            <td>
+              <% order_items().%>
+            </td>
+            <td><%= order.amount_paid %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+
+</div>

@@ -29,6 +29,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
+
   end
 
   def create
@@ -38,20 +39,22 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items.all
 
     @cart_items.each do |cart_item|
-      @order_items = OrderItems.new
+      @order_items = OrderItem.new
       @order_items.order_id = order.id
       @order_items.item_id = cart_item.item.id
-      @order_items.unit_price = cart_item.item.price_excluding_tax
+      @order_items.unit_price = ((cart_item.item.price)*1.1).floor
       @order_items.quantity = cart_item.amount
       @order_items.status = 0
       @order_items.save
     end
 
     CartItem.destroy_all
-    redirect_to orders_complete
+    redirect_to orders_complete_path
   end
 
   def index
+    @orders = Order.where(customer_id: current_customer.id)
+    @order_items = OrderItem.where(order_id: @orders.id)
   end
 
   def show
