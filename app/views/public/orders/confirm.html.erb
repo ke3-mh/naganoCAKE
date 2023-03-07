@@ -70,12 +70,12 @@
     <%= form_with model: @order_new , url: "/orders" , local:true do |f| %>
       <%= f.hidden_field :customer_id, value: current_customer.id %>
       <%= f.hidden_field :payment_method, value:  @order.payment_method %>
-      <%= f.hidden_field :postage, value: 800 %>
+      <%= f.hidden_field :shipping_cost, value: 800 %>
       <%= f.hidden_field :postal_code, value: @order.postal_code %>
-      <%= f.hidden_field :amount_requested, value: @sum + 800%>
+      <%= f.hidden_field :amount_paid, value: @sum + 800%>
       <%= f.hidden_field :address, value: @order.address%>
       <%= f.hidden_field :name, value: @order.name %>
-      <%= f.hidden_field :order_status, value: "wait_payment"%>
+      <%= f.hidden_field :status, value: "wait_payment"%>
       <%= f.submit "注文を確定する", class: "btn btn-success m-1" %>
     <% end %>
   </div>

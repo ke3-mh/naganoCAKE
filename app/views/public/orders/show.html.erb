@@ -1,1 +1,75 @@
-履歴
+<!--注文履歴詳細画面(public)-->
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h2>注文履歴詳細</h2>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <h4>注文情報</h4>
+      <table class="table table-bordered">
+        <tr>
+          <th>注文日</th>
+          <td><%= @order.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td>
+            <%= '〒' + @order.postal_code %><br>
+            <%= @order.address %><br>
+            <%= @order.name %>
+          </td>
+        </tr>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method_i18n%></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col">
+      <h4>請求情報</h4>
+      <table class="table table-bordered">
+        <tr>
+          <th>商品合計</th>
+          <td><%= (@order.amount_paid - @order.shipping_cost).to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <th>配送料</th>
+          <td><%= @order.shipping_cost.to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <th>ご請求額</th>
+          <td><%= @order.amount_paid.to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h4>注文内容</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">商品</th>
+            <th scope="col">単価(税込)</th>
+            <th scope="col">個数</th>
+            <th scope="col">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!--eachで取り出す-->
+            <td>あ</td>
+            <td>あ</td>
+            <td>あ</td>
+            <td>あ</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

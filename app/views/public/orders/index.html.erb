@@ -1,8 +1,8 @@
-<!--商品編集画面(public)-->
+<!--注文履歴一覧画面(public)-->
 <div class="container">
 
   <div class="row">
-    <div class="col-md-4 mt-5">
+    <div class="col-md-4 mt-5 mb-5">
       <h4 class="text-dark text-center bg-light">注文履歴一覧</h4>
     </div>
     <div class="col-md-1 mt-5"></div>
@@ -12,7 +12,7 @@
 
   <div class = "row">
     <div class="col">
-      <table class="table">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">注文日</th>
@@ -23,19 +23,25 @@
             <th scope="col">注文詳細</th>
           </tr>
         </thead>
-        <% @orders.each |order| do %>
+        <% @orders.each do |order| %>
         <tbody>
           <tr>
-            <td><%= order.created_at %></td>
+            <td><%= order.created_at.to_s(:datetime_jp) %></td>
             <td>
               <%= '〒' + order.postal_code %></br>
               <%= order.address %></br>
               <%= order.name %>
             </td>
             <td>
-              <% order_items().%>
+              <% @order_items.each do |order_item| %>
+                <% if order_item.order_id == order.id %>
+                  <%= order_item.item.name %></br>
+                <% end %>
+              <% end %>
             </td>
-            <td><%= order.amount_paid %></td>
+            <td><%= (order.amount_paid).to_s(:delimited) + '円' %></td>
+            <td>
+              <%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %>
           </tr>
         </tbody>
         <% end %>
