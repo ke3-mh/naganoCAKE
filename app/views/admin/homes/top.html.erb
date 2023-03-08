@@ -20,7 +20,7 @@
               <td>
                 <!--create_at-->
                 <%= link_to admin_order_path(order.id) do %>
-                  <%= order.create_at %>
+                  <%= order.created_at.to_s(:datetime_jp) %>
                 <% end %>
               </td>
 

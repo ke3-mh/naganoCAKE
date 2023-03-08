@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <th>支払方法</th>
-          <td><%= @order.payment_method_i18n%></td>
+          <td><%= @order.payment_method_i18n %></td>
         </tr>
       </table>
     </div>
@@ -61,12 +61,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <!--eachで取り出す-->
-            <td>あ</td>
-            <td>あ</td>
-            <td>あ</td>
-            <td>あ</td>
+          <% @order_items.each do |order_item| %>
+            <tr>
+              <td><%= order_item.item.name %></td>
+              <td><%= (order_item.item.price * 1.1).floor.to_s(:delimited) %></td>
+              <td><%= order_item.quantity %></td>
+              <td><%= ((order_item.item.price * 1.1).floor * order_item.quantity).to_s(:delimited) %></td>
+          <% end %>
           </tr>
         </tbody>
       </table>

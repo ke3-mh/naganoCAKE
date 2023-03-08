@@ -11,15 +11,21 @@
         <tr>
           <td>購入者</td>
           <td>
-            <%= link_to "#{@order.customer.last_name + ' ' + @order.customer.first_name}", admin_path %>
+            <%= link_to "#{@order.customer.last_name + ' ' + @order.customer.first_name}", admin_customer_path(@order.customer_id) %>
           </td>
         </tr>
 
-        <tr><td>注文日</td></td><td><%= @order.create_at %></td></tr>
+        <tr>
+          <td>注文日</td>
+          <td>
+            <%= '〒' + @order.postal_code + ' ' + @order.address %><br>
+            <%= @order.name %>
+          </td>
+        </tr>
 
         <tr><td>配送先</td><td><%= @order.postal_code %></td></tr>
 
-        <tr><td>支払方法</td><td><%= @order.payment_method %></td></tr>
+        <tr><td>支払方法</td><td><%= @order.payment_method_i18n %></td></tr>
 
         <!--<tr><td>注文ステータス</td><td>########</td></tr>-->
 
@@ -41,6 +47,7 @@
             </tr>
         </thead>
         <tbody>
+          <% sum = 0 %>
           <% @order_items.each do |order_item| %>
             <tr>
               <td>
@@ -61,14 +68,20 @@
               <td>
                 <!--= unit_price x quantity-->
                 <%= order_item.unit_price * order_item.quantity %>
+                <% sum += (order_item.unit_price * order_item.quantity) %>
               </td>
-
             </tr>
-          <% end %>
 
+          <% end %>
         </tbody>
       </table>
-
+    </div>
+    <div class="col">
+      <table class="table table-borderless">
+        <tr><td>商品合計</td><td><%= sum.to_s(:delimited) + '円' %></td></tr>
+        <tr><td>送料</td><td><%= @order.shipping_cost.to_s(:delimited) + '円' %></td></tr>
+        <tr><td>請求金額合計</td><td><%= (@order.amount_paid).to_s(:delimited) + '円' %></td></tr>
+      </table>
     </div>
   </div>
 
