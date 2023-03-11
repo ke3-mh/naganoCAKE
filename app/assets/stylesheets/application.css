@@ -16,3 +16,11 @@
  .field_with_errors {
   display: contents;
 }
+
+nav {
+  background-color: #FFFCCC;
+}
+
+.title_bar {
+ background-color: #EBEBEB;
+}
