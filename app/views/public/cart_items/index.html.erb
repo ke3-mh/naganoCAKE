@@ -1,12 +1,12 @@
 <!--カート内商品一覧画面(public)-->
 <div class="container">
 
-  <div class="row mt-5">
-    <div class="col">
-      <h2>ショッピングカート</h2>
+  <div class="row mt-5 mb-3">
+    <div class="col-md-4">
+      <h4 class="text-dark text-center title_bar">ショッピングカート</h4>
     </div>
-    <div class="col">
-      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "カートを空にしますか？", class: "btn btn-danger"%>
+    <div class="col-md-8">
+      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "カートを空にしますか？", class: "btn btn-danger float-right font-weight-bold"%>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
                     <!--数量(数量変更機能)-->
                     <%= form_with model:cart_item, url:cart_item_path(cart_item.id), local:true do |f| %>
                       <%= f.select :amount, *[1..10] %>
-                      <%= f.submit "変更する", class:"btn btn-success mx-auto" %>
+                      <%= f.submit "変更", class:"btn btn-success mx-auto font-weight-bold" %>
                     <% end %>
                   </td>
                 　<td>
@@ -59,18 +59,23 @@
       </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="row justify-content-between mt-3">
+    <div class="col-md-auto">
       <p><%= link_to "買い物を続ける", root_path, class: "btn btn-primary m-1" %></p>
     </div>
-    <div class="col">
-      <p>合計金額　<%= @sum.to_s(:delimited) %></p>
+    <div class="col-md-4">
+      <table class="table table-bordered">
+      <tr>
+        <th>合計金額</th>
+        <td><%= @sum.to_s(:delimited) %></td>
+      </tr>
+    </table>
     </div>
 
   </div>
     <div class="row">
       <div class="col-3 mx-auto">
-        <p><%= link_to "情報入力に進む", new_order_path, class: "btn btn-success m-1 mx-auto " %></p>
+        <p><%= link_to "情報入力に進む", new_order_path, class: "btn btn-success btn-lg m-1 mx-auto font-weight-bold" %></p>
       </div>
   </div>
 

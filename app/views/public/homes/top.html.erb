@@ -5,18 +5,18 @@
     <!--<div class="col-md-8 offset-md-1">-->
       <!--ジャンル検索用-->
     <!--</div>-->
-    <div class="col-md-8 offset-md-1">
-      <div>
-        <p>ようこそ、ながのCAKEへ！</p>
-        <p>このサイトは、ケーキ販売のECサイトになります。</p>
-        <p>館員でない方も商品の閲覧はできますが、</p>
-        <p>購入には科人登録が必要になります。</p>
+    <div class="col-md-8 offset-md-1" >
+      <div class="d-flex align-items-center justify-content-center" style="height: 400px; background-color: rgba(253,232,191,0.5);">
+        ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        館員でない方も商品の閲覧はできますが、<br>
+        購入には科人登録が必要になります。<br>
       </div>
     </div>
   </div>
 
-  <div class="row mt-2">
-    <h2>新着商品</h2>
+  <div class="row mt-5">
+    <h2 class="font-weight-bold">新着商品</h2>
   </div>
 
   <div class="row mt-1">
@@ -34,6 +34,9 @@
   </div>
 
     <div class="row mt-1">
-      <%= link_to "すべての商品を見る >", items_path %>
+      <div class=" col text-right font-weight-bold">
+        <%= link_to "すべての商品を見る >", items_path %>
+      </div>
     </div>
+
 </div>

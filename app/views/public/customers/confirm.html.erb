@@ -1,22 +1,25 @@
+<!--退会確認画面(public)-->
 <div class="container">
 
-  <div class="row mt-5">
-    <div class="col-md-5">
-      <p>本当に退会しますか？</p>
+  <div class="row mt-5 justify-content-center">
+    <div class="col-md-6">
+      <div style="height: 125px;" class="d-flex align-items-center justify-content-center">
+        <h4 class="text-center font-weight-bold">本当に退会しますか？</h4>
+      </div>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <p>退会すると、会員登録情報や</p>
-      <p>これまでの購入履歴が閲覧できなくなります。</p>
-      <p>退会する場合は、「退会する」をクリックしてください。</p>
+  <div class="row mt-3 mb-5 justify-content-center">
+    <div class="col-md-6">
+      <p class="text-center" style="line-height:1rem">退会すると、会員登録情報や</p>
+      <p class="text-center" style="line-height:1rem">これまでの購入履歴が閲覧できなくなります。</p>
+      <p class="text-center" style="line-height:1rem">退会する場合は、「退会する」をクリックしてください。</p>
     </div>
   </div>
-  <div class="row mt-3 justify-content-center">
-    <div class="col-md-3">
+  <div class="row mt-2 justify-content-center">
+    <div class="col-md-2 text-center">
       <%= link_to "退会しない", customers_mypage_path, class: "btn btn-primary"%>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2 text-center">
       <%= link_to "退会する", customers_withdraw_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: "btn btn-danger" %>
     </div>
   </div>
