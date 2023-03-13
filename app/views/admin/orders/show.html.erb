@@ -21,12 +21,17 @@
         <tr>
           <td class="font-weight-bold">注文日</td>
           <td>
+            <%= @order.created_at.to_s(:datetime_jp) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="font-weight-bold">配送先</td>
+          <td>
             <%= '〒' + @order.postal_code + ' ' + @order.address %><br>
             <%= @order.name %>
           </td>
         </tr>
-
-        <tr><td class="font-weight-bold">配送先</td><td><%= @order.postal_code %></td></tr>
 
         <tr><td class="font-weight-bold">支払方法</td><td><%= @order.payment_method_i18n %></td></tr>
 
