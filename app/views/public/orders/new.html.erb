@@ -2,55 +2,55 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 mt-5">
-      <h4 class="text-dark text-center bg-light">注文情報入力</h4>
+      <h4 class="text-dark text-center title_bar">注文情報入力</h4>
     </div>
     <div class="col-md-7 mt-5"></div>
   </div>
-  <%= form_with model: @order, url: orders_confirm_path(@order) do |f| %>
+  <%= form_with model: @order, url: orders_confirm_path do |f| %>
   <div class="row mt-2 mb-3 ">
     <div class="col">
-      <h5>支払方法</h5>
-      <%= f.radio_button :payment_method, "credit_card" %>
+      <h5 class="font-weight-bold">支払方法</h5>
+      　<%= f.radio_button :payment_method, "credit_card" %>
       <%= f.label :payment_method_credit_card, "クレジットカード" %></br>
 
-      <%= f.radio_button :payment_method, "transfer" %>
+      　<%= f.radio_button :payment_method, "transfer" %>
       <%= f.label :payment_method_transfer, "銀行振込" %></br>
     </div>
   </div>
 
-  <div class="row mt-2 mb-3 ">
-    <div class="col">
-      <h5>お届け先</h5>
-      <%= f.radio_button :select_address, 1, checked: true %>
+  <div class="row mt-2 mb-4 ">
+    <div class="col-md-8">
+      <h5 class="font-weight-bold">お届け先</h5>
+      　<%= f.radio_button :select_address, 1, checked: true %>
       <%= f.label :select_address_1, "ご自身の住所" %></br>
-      <p><%= current_customer.address_display %></p>
-      <p><%= current_customer.fullname_display %></p>
+      <p>　　<%= current_customer.address_display %></p>
+      <p>　　<%= current_customer.fullname_display %></p>
 
       <!--登録した住所を選択する機能(f.radio_button :select_address, 2)-->
 
-      <%= f.radio_button :select_address, 3 %>
+      　<%= f.radio_button :select_address, 3 %>
       <%= f.label :select_address_3, "新しいお届け先" %></br>
-      <table>
-        <tr>
-          <td>郵便番号</td>
-          <td> <%= f.text_field :postal_code %></td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td><%= f.text_field :address %></td>
-        </tr>
-        <tr>
-          <td>宛名</td>
-          <td><%= f.text_field :name %></td>
-        </tr>
-      </table>
+      <!---->
+      <div class="form-group row">
+        <label for="inputPostalCode", class="col-sm-4 col-form-label">　　郵便番号(ハイフンなし)</label>
+        <%= f.text_field :postal_code, id:"inputPostalCode", class:"col-sm-3 form-control" %>
+      </div>
+      <div class="form-group row">
+        <label for="inputAdress", class="col-sm-4 col-form-label">　　住所</label>
+        <%= f.text_field :address, id:"inputAdress", class:"col-sm-7 form-control" %>
+      </div>
+      <div class="form-group row">
+        <label for="inputToname", class="col-sm-4 col-form-label">　　宛名</label>
+        <%= f.text_field :name, id:"inputToneme", class:"col-sm-3 form-control" %>
+      </div>
+      <!---->
     </div>
   </div>
 
 
-  <div class="row mt-2 mb-3">
-    <div class="col">
-      <%= f.submit "確認画面へ進む", class:"btn btn-primary mx-auto" %>
+  <div class="row mt-2 mb-3 justify-content-center">
+    <div class="col-md-4">
+      <%= f.submit "確認画面へ進む", class:"btn btn-primary mx-auto text-center font-weight-bold" %>
     </div>
   </div>
   <% end %>

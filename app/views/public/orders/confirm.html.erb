@@ -1,11 +1,13 @@
 <div class="container">
-  <div class="row mt-5">
-    <div class="col">
-      <h2>注文情報確認</h2>
-    </div>
-  </div>
 
   <div class="row">
+    <div class="col-md-3 mt-5">
+      <h4 class="text-dark text-center title_bar">注文情報確認</h4>
+    </div>
+    <div class="col-md-7 mt-5"></div>
+  </div>
+
+  <div class="row mt-3">
     <div class="col">
       <table class="table table-bordered">
         <tr>
@@ -76,7 +78,7 @@
       <%= f.hidden_field :address, value: @order.address%>
       <%= f.hidden_field :name, value: @order.name %>
       <%= f.hidden_field :status, value: "wait_payment"%>
-      <%= f.submit "注文を確定する", class: "btn btn-success m-1" %>
+      <%= f.submit "注文を確定する", class: "btn btn-success font-weight-bold m-1" %>
     <% end %>
   </div>
 </div>

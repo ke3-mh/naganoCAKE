@@ -26,6 +26,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @order_new = Order.new
     render :confirm
+    # redirect_to orders_confirm_path
   end
 
   def complete

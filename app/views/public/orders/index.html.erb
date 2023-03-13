@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-md-4 mt-5 mb-5">
-      <h4 class="text-dark text-center bg-light">注文履歴一覧</h4>
+      <h4 class="text-dark text-center title_bar">注文履歴一覧</h4>
     </div>
     <div class="col-md-1 mt-5"></div>
     <div class="col-md-5 mt-5"></div>
@@ -41,7 +41,7 @@
             </td>
             <td><%= (order.amount_paid).to_s(:delimited) + '円' %></td>
             <td>
-              <%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %>
+              <%= link_to "表示する", order_path(order.id), class: "btn btn-primary font-weight-bold" %>
           </tr>
         </tbody>
         <% end %>
